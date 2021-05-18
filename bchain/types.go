@@ -182,10 +182,6 @@ type TransactionReceipt struct {
 	ContractAddress string `json:"contractAddress"`
 }
 
-type TransactionReceipt struct {
-	ContractAddress string `json:"contractAddress"`
-}
-
 // RPCError defines rpc error returned by backend
 type RPCError struct {
 	Code    int    `json:"code"`
@@ -298,9 +294,9 @@ type BlockChain interface {
 	EthereumTypeEstimateGas(params map[string]interface{}) (uint64, error)
 	EthereumTypeGetErc20ContractInfo(contractDesc AddressDescriptor) (*Erc20Contract, error)
 	EthereumTypeGetErc20ContractBalance(addrDesc, contractDesc AddressDescriptor) (*big.Int, error)
-	EthereumTypeGetReceipt(txid string)(*TransactionReceipt, error)
+	EthereumTypeGetReceipt(txid string) (*TransactionReceipt, error)
 	// BSC specific
-	BscTypeGetTokenHub()(*Tokenhub, error)
+	BscTypeGetTokenHub() (*Tokenhub, error)
 }
 
 // BlockChainParser defines common interface to parsing and conversions of block chain data
